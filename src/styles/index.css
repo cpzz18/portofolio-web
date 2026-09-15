@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-screen: var(--bg-screen);
+  --color-bg-panel: var(--bg-panel);
+  --color-border-frame: var(--border-frame);
+  --color-border-active: var(--border-active);
+
+  --color-phosphor-green: var(--phosphor-green);
+  --color-phosphor-amber: var(--phosphor-amber);
+  --color-phosphor-dim: var(--phosphor-dim);
+  --color-phosphor-text: var(--phosphor-text);
+
+  --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+:root {
+  --bg-screen: #080808;  /* Hitam arang monitor mati */
+  --bg-panel: #101619;   /* Panel dalam TUI */
+  --border-frame: #303030; /* Garis batas bezel */
+  --border-active: #8ccf7e; /* Aksen aktif fosfor hijau */
+
+  --phosphor-green: #8ccf7e; /* Warna primer teks matrix */
+  --phosphor-amber: #cf9a5a; /* Warna peringatan / status WIP */
+  --phosphor-dim: #5c7570;   /* Teks sekunder / komentar */
+  --phosphor-text: #e8e8e0;  /* Putih gading untuk keterbacaan tinggi */
+}
