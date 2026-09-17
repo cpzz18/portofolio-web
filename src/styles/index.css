@@ -1,27 +1,129 @@
 @import "tailwindcss";
+@import "./crt.css";
 
 @theme {
-  --color-bg-screen: var(--bg-screen);
-  --color-bg-panel: var(--bg-panel);
-  --color-border-frame: var(--border-frame);
-  --color-border-active: var(--border-active);
+  --color-bg-screen: #050505;
+  --color-bg-panel: #080808;
+  --color-border-frame: #303030;
+  --color-border-active: #e8e8e0;
 
-  --color-phosphor-green: var(--phosphor-green);
-  --color-phosphor-amber: var(--phosphor-amber);
-  --color-phosphor-dim: var(--phosphor-dim);
-  --color-phosphor-text: var(--phosphor-text);
+  --color-net-ink: #e8e8e0;
+  --color-net-gray: #8a8a84;
+  --color-net-paper: #f2f2ea;
+  --color-net-line: #303030;
 
-  --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-space: 'Space Mono', monospace;
+  --font-pixel: 'VT323', monospace;
 }
 
 :root {
-  --bg-screen: #080808;  /* Hitam arang monitor mati */
-  --bg-panel: #101619;   /* Panel dalam TUI */
-  --border-frame: #303030; /* Garis batas bezel */
-  --border-active: #8ccf7e; /* Aksen aktif fosfor hijau */
+  --bg-screen: #050505;
+  --bg-panel: #080808;
+  --border-frame: #303030;
+  --border-active: #e8e8e0;
 
-  --phosphor-green: #8ccf7e; /* Warna primer teks matrix */
-  --phosphor-amber: #cf9a5a; /* Warna peringatan / status WIP */
-  --phosphor-dim: #5c7570;   /* Teks sekunder / komentar */
-  --phosphor-text: #e8e8e0;  /* Putih gading untuk keterbacaan tinggi */
+  --phosphor-text: #e8e8e0;
+  --phosphor-dim: #8a8a84;
+}
+
+.bezel {
+  border: 1px solid #303030;
+  background-color: #050505;
+}
+
+/* Responsive screen frame viewport dimensions */
+.custom-size {
+  width: calc(100vw - 1rem);
+  height: calc(100vh - 1rem);
+  height: calc(100dvh - 1rem);
+}
+
+@media (min-width: 640px) {
+  .custom-size {
+    width: calc(100vw - 2rem);
+    height: calc(100vh - 2rem);
+    height: calc(100dvh - 2rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .custom-size {
+    width: calc(100vw - 3.5rem);
+    height: calc(100vh - 3.5rem);
+    height: calc(100dvh - 3.5rem);
+  }
+}
+
+.sys-panel {
+  border: 1px solid #303030;
+  background-color: #080808;
+}
+
+.sys-head {
+  border-bottom: 1px solid #303030;
+  background-color: #111111;
+  text-transform: uppercase;
+  color: #8a8a84;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+}
+
+.well {
+  border: 1px solid #303030;
+  background-color: #0c0c0c;
+}
+
+.title-bar {
+  border-bottom: 1px solid #303030;
+  background-color: #111111;
+}
+
+.btn-retro {
+  border: 1px solid #303030;
+  text-transform: uppercase;
+  color: #e8e8e0;
+  letter-spacing: 0.08em;
+  background-color: transparent;
+  transition: background-color 90ms, color 90ms, border-color 90ms;
+  cursor: pointer;
+}
+
+.btn-retro:hover,
+.btn-retro-on {
+  border-color: #e8e8e0;
+  background-color: #e8e8e0;
+  color: #080808;
+}
+
+.border-net-line {
+  border-color: #303030;
+}
+
+.text-net-ink {
+  color: #e8e8e0;
+}
+
+.text-net-gray {
+  color: #8a8a84;
+}
+
+.text-net-paper {
+  color: #f2f2ea;
+}
+
+/* Subtle thin glow - tipis-tipis */
+.glow {
+  text-shadow: 0 0 5px rgba(82, 165, 255, 0.25);
+}
+
+.cursor-blink {
+  animation: 1.1s step-end infinite blink;
+  display: inline-block;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
