@@ -1,11 +1,35 @@
+import { useState } from 'react';
+import { CrtScreen } from './components/crt';
+import { TopHeader } from './components/layout/TopHeader';
+import { BottomBar } from './components/layout/BottomBar';
+import { HomeHero } from './components/sections/HomeHero';
+import { ProfileWindow } from './components/layout/ProfileWindow';
+import { TabSection } from './types/layout';
+
 export default function App() {
+  // Config: Initial active tab ('home' | 'about' | 'projects' | 'contact')
+  const [activeTab, setActiveTab] = useState<TabSection>('home');
+
   return (
-    <div className="min-h-screen bg-[var(--bg-screen)] text-[var(--phosphor-green)] font-mono flex items-center justify-center p-4">
-      <div className="border border-[var(--border-frame)] bg-[var(--bg-panel)] p-6 max-w-md w-full text-center space-y-3">
-        <h1 className="text-base font-bold text-[var(--phosphor-green)]">
-          Welcome to portofolio-web
-        </h1>
+    <CrtScreen>
+      <div className="bezel custom-size flex flex-col overflow-hidden">
+        <TopHeader activeTab={activeTab} onTabChange={setActiveTab} />
+
+        <main
+          id={`panel-${activeTab}`}
+          role="tabpanel"
+          aria-labelledby={`tab-${activeTab}`}
+          className="flex-1 w-full overflow-y-auto flex items-center justify-center bg-[#080808]"
+        >
+          {activeTab === 'home' ? (
+            <HomeHero onNavigateProjects={() => setActiveTab('projects')} />
+          ) : (
+            <ProfileWindow activeTab={activeTab} />
+          )}
+        </main>
+
+        <BottomBar />
       </div>
-    </div>
+    </CrtScreen>
   );
 }
